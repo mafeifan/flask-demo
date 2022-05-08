@@ -41,7 +41,7 @@ jobs:
       - name: Trigger CI
         uses: InformaticsMatters/trigger-ci-action@1.0.1
         with:
-          ci-owner: pyfs
+          ci-owner: mafeifan
           ci-repository: flask-demo-kustomize
           ci-ref: refs/heads/master
           ci-user: pyfs
