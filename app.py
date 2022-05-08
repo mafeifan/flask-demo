@@ -14,7 +14,7 @@ DB_PORT = os.environ.get('DB_PORT')
 @app.route("/")
 def hello_world():
     return f"""
-    <p>Hello, World!</p>
+    <p>this is v2</p>
     <p>---something important from environ---</p>
     <p>DB_NAME={DB_NAME}</p>
     <p>DB_USERNAME={DB_USERNAME}</p>
