@@ -30,7 +30,6 @@ jobs:
         with:
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
-          logout: true
 
       # Runs a set of commands using the runners shell
       - name: build image
