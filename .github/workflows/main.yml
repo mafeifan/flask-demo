@@ -38,15 +38,24 @@ jobs:
           docker tag flask-demo:latest ${{ secrets.USERNAME }}/flask-demo:${{ github.sha }}
           docker push ${{ secrets.USERNAME }}/flask-demo:${{ github.sha }}
 
+
       - name: Trigger CI
-        uses: InformaticsMatters/trigger-ci-action@1.0.1
+        uses: benc-uk/workflow-dispatch@v1
         with:
-          ci-owner: mafeifan
-          ci-repository: flask-demo-kustomize
-          ci-ref: refs/heads/master
-          ci-user: mafeifan
-          ci-user-token: ${{ secrets.CI_TOKEN }}
-          ci-name: CI
-          ci-inputs: >-
-            image=${{ secrets.USERNAME }}/flask-demo
-            sha-tag=${{ github.sha }}
+          workflow: CI
+          repo: mafeifan/flask-demo-kustomize
+          token: ${{ secrets.CI_TOKEN }}
+          inputs: '{ "image": "${{ secrets.USERNAME }}/flask-demo", "sha-tag=": ${{ github.sha }} }'
+          
+#       - name: Trigger CI
+#         uses: InformaticsMatters/trigger-ci-action@1.0.1
+#         with:
+#           ci-owner: mafeifan
+#           ci-repository: flask-demo-kustomize
+#           ci-ref: refs/heads/master
+#           ci-user: mafeifan
+#           ci-user-token: ${{ secrets.CI_TOKEN }}
+#           ci-name: CI
+#           ci-inputs: >-
+#             image=${{ secrets.USERNAME }}/flask-demo
+#             sha-tag=${{ github.sha }}
