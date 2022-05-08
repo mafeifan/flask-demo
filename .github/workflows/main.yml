@@ -45,7 +45,7 @@ jobs:
           workflow: CI
           repo: mafeifan/flask-demo-kustomize
           token: ${{ secrets.CI_TOKEN }}
-          inputs: '{ "image": "${{ secrets.USERNAME }}/flask-demo", "sha-tag=": ${{ github.sha }} }'
+          inputs: '{ "image": "${{ secrets.USERNAME }}/flask-demo", "sha-tag": "${{ github.sha }}" }'
           
 #       - name: Trigger CI
 #         uses: InformaticsMatters/trigger-ci-action@1.0.1
